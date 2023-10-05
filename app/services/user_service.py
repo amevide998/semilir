@@ -16,3 +16,6 @@ class UserService:
             password=hash_password(user.password)
         )
         return await self.repository.create_user(new_user)
+
+    async def get_user(self, username: str) -> User:
+        return await self.repository.find_user(username)

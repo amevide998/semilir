@@ -13,3 +13,7 @@ async def register_user(request: UserRequest, service: UserService = Depends()):
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
     return user
 
+
+@router.get("/user/{username}", response_model=UserResponse, tags=["User"])
+async def get_user(username: str, service: UserService = Depends()):
+    return await service.get_user(username)
