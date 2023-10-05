@@ -1,8 +1,8 @@
 from app.repository.user_repository import UserRepository
 from app.models.user import User
-from app.models.password import Password
 from app.models.Dtos.user_dto import UserRequest
 from fastapi import Depends
+from app.utils.hash import hash_password
 
 
 class UserService:
@@ -10,13 +10,9 @@ class UserService:
         self.repository = repository
 
     async def register_user(self, user: UserRequest) -> User:
-        user_password = Password(
-            hashed_password=user.password,
-            salt='random'
-        )
         new_user = User(
             username=user.username,
             email=user.email,
-            password=user_password
+            password=hash_password(user.password)
         )
         return await self.repository.create_user(new_user)
