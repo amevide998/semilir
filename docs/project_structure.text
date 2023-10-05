@@ -1,0 +1,41 @@
+myarticleapp/
+│
+├── main.py                # Modul utama aplikasi FastAPI
+├── app/
+│   ├── __init__.py       # Inisialisasi modul FastAPI
+│   ├── config/            # Direktori untuk konfigurasi aplikasi
+│   │   ├── __init__.py
+│   │   └── settings.py    # Modul pengaturan aplikasi
+│   ├── interfaces/        # Direktori untuk definisi antarmuka
+│   │   ├── __init__.py
+│   │   ├── repositories.py # Antarmuka repositori
+│   │   ├── usecases.py    # Antarmuka use case
+│   ├── repositories/      # Direktori untuk implementasi repositori
+│   │   ├── __init__.py
+│   │   ├── mongodb.py     # Implementasi repositori MongoDB
+│   ├── usecases/          # Direktori untuk implementasi use case
+│   │   ├── __init__.py
+│   │   ├── articles.py    # Implementasi use case terkait artikel
+│   ├── delivery/           # Direktori untuk lapisan pengiriman
+│   │   ├── __init__.py
+│   │   ├── routes/        # Direktori untuk rute-rute aplikasi
+│   │   │   ├── __init__.py
+│   │   │   ├── articles.py # Rute terkait artikel
+│   ├── models/            # Direktori untuk model-model data
+│   │   ├── __init__.py
+│   │   ├── article.py     # Model artikel
+│   ├── database.py        # Modul untuk menginisialisasi koneksi database
+│   └── utils/             # Direktori untuk utilitas aplikasi (opsional)
+│       ├── __init__.py
+│       ├── auth.py        # Modul autentikasi (jika diperlukan)
+│       └── helpers.py     # Modul utilitas lainnya
+│
+├── tests/                 # Direktori untuk pengujian aplikasi
+│   ├── __init__.py
+│   ├── test_routes.py     # Modul pengujian rute-rute aplikasi
+│   ├── test_usecases.py   # Modul pengujian use case
+│   └── test_repositories.py # Modul pengujian repositori
+│
+├── .env                   # Berkas untuk variabel lingkungan (opsional)
+├── requirements.txt       # Berkas kebutuhan pustaka Python
+└── README.md              # Dokumentasi proyek
