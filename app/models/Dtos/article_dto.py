@@ -8,7 +8,6 @@ class ArticleRequest(BaseModel):
     title: str
     description: str
     content: Union[str | dict]
-    author: UserResponse
     tags: List[str] = []
 
     class Config:
