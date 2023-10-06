@@ -10,5 +10,5 @@ class ArticleRepository:
 
     async def create(self, article: Article) -> str:
         article_dict = article.model_dump()
-        self.collection.insert_one(article_dict)
-        return article.title
+        article = self.collection.insert_one(article_dict)
+        return str(article.inserted_id)
